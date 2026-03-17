@@ -21,22 +21,19 @@ public:
 
 class Solution {
 public:
-     //Map to keep track of visited nodes and their clones
-    unordered_map<Node*, Node*> mapping;
 
+    unordered_map< Node*, Node*> mapping;
     Node* cloneGraph(Node* node) {
-
         if(node == NULL) return NULL;
 
-        //If we have already processed ths node, return its clone
         if(mapping.find(node) != mapping.end())
+        {
             return mapping[node];
+        }
 
-        //create new node and register in map
-        Node* clone = new Node(node -> val);
+        Node* clone  = new Node(node -> val);
         mapping[node] = clone;
 
-        //Traverse neighbours
         for(Node* neighbors : node -> neighbors)
         {
             clone -> neighbors.push_back(cloneGraph(neighbors));

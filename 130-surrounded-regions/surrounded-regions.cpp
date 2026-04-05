@@ -26,21 +26,19 @@ public:
         int m = board.size();
         int n = board[0].size();
 
-        for(int i = 0; i < m; i++)
-        {
+        for(int i = 0; i < m; i++){
             if(board[i][0] == 'O') floodFill(i,0,m,n,board);
             if(board[i][n-1] == 'O') floodFill(i,n-1,m,n,board);
         }
-
         for(int j = 0; j < n; j++)
         {
             if(board[0][j] == 'O') floodFill(0,j,m,n,board);
             if(board[m-1][j] == 'O') floodFill(m-1,j,m,n,board);
         }
 
-        for(int i=0; i<m; i++)
+        for(int i = 0; i < m; i++)
         {
-            for(int j=0; j<n; j++)
+            for(int j = 0; j < n; j++)
             {
                 if(board[i][j] == 'O')
                 {

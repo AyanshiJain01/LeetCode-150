@@ -3,23 +3,21 @@ public:
     bool isPalindrome(string s) {
         
         string filtered = "";
-
-        for(char c: s)
+        for(char c : s)
         {
             if(isalnum(c))
             {
                 filtered += tolower(c);
             }
         }
-        int i = 0;
-        int j = filtered.length() - 1;
+        int left = 0;
+        int right = filtered.length() - 1;
 
-        while(i < j)
+        while(left < right){
+        if(filtered[left++] != filtered[right--])
         {
-            if(filtered[i++] != filtered[j--])
-            {
-                return false;
-            }
+            return false;
+        }
         }
         return true;
     }

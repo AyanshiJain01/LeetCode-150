@@ -1,7 +1,7 @@
 class Solution {
 public:
 
-    int firstOccourance(vector<int>& nums, int target)
+    int firstOccurances(vector<int>&nums, int target)
     {
         int start = 0;
         int end = nums.size()-1;
@@ -9,13 +9,14 @@ public:
 
         while(start <= end)
         {
-            int mid = start+(end - start)/2;
-            if(target == nums[mid])
+            int mid = start+(end-start)/2;
+
+            if(nums[mid] == target)
             {
                 ans = mid;
-                end = mid - 1;
+                end = mid-1;
             }
-            else if(target > nums[mid])
+            else if(nums[mid] < target)
             {
                 start = mid+1;
             }
@@ -27,7 +28,7 @@ public:
         return ans;
     }
 
-    int lastOccourance(vector<int>& nums, int target)
+    int lastOccurences(vector<int>&nums, int target)
     {
         int start = 0;
         int end = nums.size()-1;
@@ -35,13 +36,14 @@ public:
 
         while(start <= end)
         {
-            int mid = start+(end - start)/2;
-            if(target == nums[mid])
+            int mid = start+(end-start)/2;
+
+            if(nums[mid] == target)
             {
                 ans = mid;
-                start= mid+1;
+                start = mid+1;
             }
-            else if(target > nums[mid])
+            else if(nums[mid] < target)
             {
                 start = mid+1;
             }
@@ -54,8 +56,8 @@ public:
     }
 
     vector<int> searchRange(vector<int>& nums, int target) {
-        int first = firstOccourance(nums,target);
-        int last = lastOccourance(nums,target);
+        int first = firstOccurances(nums,target);
+        int last = lastOccurences(nums,target);
 
         return {first,last};
     }

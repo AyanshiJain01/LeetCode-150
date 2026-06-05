@@ -6,8 +6,8 @@ public:
 
         int start = 0;
         int end = row*col-1;
+        int mid = start+(end -start)/2;
 
-        int mid = start+(end-start)/2;
         while(start <= end)
         {
             int element = matrix[mid/col][mid%col];
@@ -15,15 +15,15 @@ public:
             {
                 return 1;
             }
-            else if(element < target)
+            else if(element  < target)
             {
-                start = mid+1;
+                start = mid + 1;
             }
             else
             {
-                end = mid-1;
+                end = mid - 1;
             }
-            mid = start+(end-start)/2;
+            mid = start+(end -start)/2;
         }
         return false;
     }

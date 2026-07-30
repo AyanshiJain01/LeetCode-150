@@ -12,7 +12,6 @@ public:
         {
             map[c]++;
         }
-
         for(char c : t)
         {
             map[c]--;
